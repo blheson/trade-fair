@@ -18,5 +18,5 @@ Route::post('register/buyer', [\App\Http\Controllers\RegistrationController::cla
 Route::post('register/vendor', [\App\Http\Controllers\RegistrationController::class, 'storeVendor'])->name('store-vendor');
 
 
-Route::post('/pay', [App\Http\Controllers\RegistrationController::class, 'redirectToGateway'])->name('pay');
-Route::get('/payment/callback', [App\Http\Controllers\RegistrationController::class, 'handleGatewayCallback']);
+//Route::post('/pay', [App\Http\Controllers\RegistrationController::class, 'redirectToGateway'])->name('pay');
+//Route::get('/payment/callback', [App\Http\Controllers\RegistrationController::class, 'handleGatewayCallback']);

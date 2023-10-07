@@ -165,16 +165,16 @@
                         </div>
 
 
-                        <input type="hidden" name="email" value="otemuyiwa@gmail.com"> {{-- required --}}
-                        <input type="hidden" name="orderID" value="345">
-                        <input type="hidden" name="amount" value="1000"> {{-- required in kobo --}}
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="currency" value="NGN">
-                        <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
-                        <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
+{{--                        <input type="hidden" name="email" value="otemuyiwa@gmail.com"> --}}{{-- required --}}
+{{--                        <input type="hidden" name="orderID" value="345">--}}
+{{--                        <input type="hidden" name="amount" value="1000"> --}}{{-- required in kobo --}}
+{{--                        <input type="hidden" name="quantity" value="1">--}}
+{{--                        <input type="hidden" name="currency" value="NGN">--}}
+{{--                        <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > --}}{{-- For other necessary things you want to add to your payload. it is optional though --}}
+{{--                        <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> --}}{{-- required --}}
 
-                        <input type="hidden" name="split_code" value="SPL_EgunGUnBeCareful"> {{-- to support transaction split. more details https://paystack.com/docs/payments/multi-split-payments/#using-transaction-splits-with-payments --}}
-                        {{--                        <input type="hidden" name="split" value="{{ json_encode($split) }}">--}}
+{{--                        <input type="hidden" name="split_code" value="SPL_EgunGUnBeCareful"> --}}{{-- to support transaction split. more details https://paystack.com/docs/payments/multi-split-payments/#using-transaction-splits-with-payments --}}
+{{--                        --}}{{--                        <input type="hidden" name="split" value="{{ json_encode($split) }}">--}}
 
 
                         <div class="row form-group">
@@ -198,7 +198,7 @@
             <div class="row mb-5">
 
                 <div class="col-md-5 ml-auto mb-5 order-md-2"  data-jarallax-element="50">
-                    <img src="assets/images/img_13.jpg" alt="Image" class="img-fluid rounded">
+                    <img src="assets/images/22.jpg" alt="Image" class="img-fluid rounded">
                 </div>
                 <div class="col-md-6 order-md-1"  data-jarallax-element="-50">
 
@@ -315,7 +315,7 @@
 
 
 
-<section class="site-section">
+<section class="site-section" id="sponsors-section">
         <div class="container">
             <div class="row mb-5 justify-content-center">
                 <div class="col-md-8 text-center">
@@ -414,7 +414,7 @@
         </div>
     </section>
 
-    <section class="site-section" id="work-section">
+    <section class="site-section" id="gallery-section">
         <div class="container">
             <div class="row mb-5 justify-content-center">
                 <div class="col-md-8 text-center">

@@ -5,15 +5,15 @@
                 <div class="row">
                     <div class="col-md-5">
                         <h2 class="footer-heading mb-4">About Us</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+                        <p>NBCTRADEFAIR focuses on giving MSMEs visibility in their business, Over the last 5years of existence, we pride ourselves to have given over 3000 businesses a platform to showcase and increase brand awareness.</p>
                     </div>
                     <div class="col-md-3 ml-auto">
                         <h2 class="footer-heading mb-4">Features</h2>
                         <ul class="list-unstyled">
                             <li><a href="#">About Us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Sponsor</a></li>
+                            <li><a href="#">FAQ</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
@@ -40,7 +40,7 @@
         <div class="row pt-5 mt-5 text-center">
             <div class="col-md-12">
                 <div class="border-top pt-5">
-                    <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co/">Untree.co</a>  Distributed By <a href="https://themewagon.com/">ThemeWagon</a> <!-- License information: https://untree.co/license/ -->
+                    <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by #NBCTRADEFAIR <!-- License information: https://untree.co/license/ -->
                     </p>
                 </div>
             </div>

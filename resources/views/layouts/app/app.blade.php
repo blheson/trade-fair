@@ -86,20 +86,13 @@
 
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <li><a href="#home-section" class="nav-link">Home</a></li>
-                            <li class="has-children">
-                                <a href="#about-section" class="nav-link">About</a>
-                                <ul class="dropdown">
-                                    <li><a href="#about-section">Specialties</a></li>
-                                    <li><a href="#team-section">Our Team</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#work-section" class="nav-link">Apply To Exhibit</a></li>
-                            <li><a href="#work-section" class="nav-link">Sponsors</a></li>
+                            <li><a href="#about-section" class="nav-link">About</a></li>
+                            <li><a href="#vendor-section" class="nav-link">Apply To Exhibit</a></li>
+                            <li><a href="#sponsors-section" class="nav-link">Sponsors</a></li>
                             <li>
-                                <a href="#services-section" class="nav-link">Vendors</a>
+                                <a href="#vendor-section" class="nav-link">Vendors</a>
                             </li>
-                            <li><a href="#blog-section" class="nav-link">Gallery</a></li>
-                            <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                            <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
                         </ul>
                     </nav>
                 </div>
