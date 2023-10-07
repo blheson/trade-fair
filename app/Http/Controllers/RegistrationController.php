@@ -19,11 +19,6 @@ use Unicodeveloper\Paystack\Facades\Paystack;
 
 class RegistrationController extends Controller
 {
-    public function registerBuyer(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
-    {
-        return view('auth.buyer');
-    }
-
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -74,11 +69,6 @@ class RegistrationController extends Controller
         // Now you have the payment details,
         // you can store the authorization_code in your db to allow for recurrent subscriptions
         // you can then redirect or do whatever you want
-    }
-
-    public function registerVendor()
-    {
-        return view('auth.vendor');
     }
 
     public function storeVendor(Request $request): RedirectResponse

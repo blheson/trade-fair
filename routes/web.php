@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('home');
-Route::get('register/buyer', [\App\Http\Controllers\RegistrationController::class, 'registerBuyer'])->name('register-buyer');
-Route::get('register/vendor', [\App\Http\Controllers\RegistrationController::class, 'registerVendor'])->name('register-vendor');
 Route::post('register/buyer', [\App\Http\Controllers\RegistrationController::class, 'store'])->name('store-buyer');
 Route::post('register/vendor', [\App\Http\Controllers\RegistrationController::class, 'storeVendor'])->name('store-vendor');
 

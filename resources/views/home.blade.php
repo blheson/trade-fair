@@ -3,7 +3,7 @@
 
 
     <div class="particlehead"></div>
-    <!-- <div class="container"> -->
+{{--    <div class="container">--}}
     <div class="site-blocks-cover">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
@@ -13,10 +13,10 @@
                     <div class="row justify-content-center mb-4">
                         <div class="col-md-10 text-center">
                             <h1>#NBCTRADEFAIR 2023 <span class="typed-words"></span></h1>
-                            <p class="lead mb-5">Creating business visibility for MSME & Women in business. <a href="{{route('register-vendor')}}">become a vendor</a></p>
+                            <p class="lead mb-5">Creating business visibility for MSME & Women in business. <a href="">become a vendor</a></p>
                             <div>
-                                <a href="{{route('register-buyer')}}" class="btn btn-primary btn-md">Register</a>
-                                <a href="{{route('register-vendor')}}" class="btn btn-primary btn-md">Register As Vendor</a>
+                                <a href="#buyer-section" class="btn btn-primary btn-md">Register As Buyer</a>
+                                <a href="#vendor-section" class="btn btn-primary btn-md">Register As Vendor</a>
                             </div>
                         </div>
                     </div>
@@ -28,23 +28,188 @@
     <!-- </div> -->
 
 
+
+    <section class="site-section" id="buyer-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="site-section-heading">Register As Buyer</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-5">
+
+
+
+                    <form method="POST" action="{{route('store-buyer')}}" class="p-5 bg-white">
+                        @csrf
+                        <h2 class="h4 mb-5">Buyers Registration Form</h2>
+
+                        @if (Session::has('success'))
+                            <div class="alert alert-success" role="alert">
+                                <p>{{ Session::get('success') }}</p>
+                            </div>
+                        @endif
+                        @if (Session::has('error'))
+                            <div class="alert alert-danger" role="alert">
+                                <p>{{ Session::get('error') }}</p>
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <div class="row form-group">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label class="text-black" for="fname">First Name</label>
+                                <input type="text" name="first_name" id="fname" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-black" for="lname">Last Name</label>
+                                <input type="text" name="last_name" id="lname" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+
+                            <div class="col-md-6">
+                                <label class="text-black" for="email">Email</label>
+                                <input type="email" name="email" id="email" class="form-control">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="text-black" for="subject">Phone</label>
+                                <input type="subject" name="phone" id="subject" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <input type="submit" value="Register" class="btn btn-primary btn-md text-white">
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="site-section" id="vendor-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="site-section-heading">Register As Vendor</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-5">
+
+
+
+                    <form method="POST" action="{{route('store-vendor')}}" class="p-5 bg-white">
+                        @csrf
+                        <h2 class="h4 mb-5">Vendor Registration Form</h2>
+
+                        @if (Session::has('success'))
+                            <div class="alert alert-success" role="alert">
+                                <p>{{ Session::get('success') }}</p>
+                            </div>
+                        @endif
+                        @if (Session::has('error'))
+                            <div class="alert alert-danger" role="alert">
+                                <p>{{ Session::get('error') }}</p>
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+
+                        <div class="row form-group">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label class="text-black" for="fname">First Name</label>
+                                <input type="text" name="first_name" id="fname" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-black" for="lname">Last Name</label>
+                                <input type="text" name="last_name" id="lname" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+
+                            <div class="col-md-6">
+                                <label class="text-black" for="email">Email</label>
+                                <input type="email" name="email" id="email" class="form-control">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="text-black" for="subject">Phone</label>
+                                <input type="subject" name="phone" id="subject" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <input type="hidden" name="email" value="otemuyiwa@gmail.com"> {{-- required --}}
+                        <input type="hidden" name="orderID" value="345">
+                        <input type="hidden" name="amount" value="1000"> {{-- required in kobo --}}
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="currency" value="NGN">
+                        <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
+                        <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
+
+                        <input type="hidden" name="split_code" value="SPL_EgunGUnBeCareful"> {{-- to support transaction split. more details https://paystack.com/docs/payments/multi-split-payments/#using-transaction-splits-with-payments --}}
+                        {{--                        <input type="hidden" name="split" value="{{ json_encode($split) }}">--}}
+
+
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <input type="submit" value="Register" class="btn btn-primary btn-md text-white">
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
     <section class="site-section">
         <div class="container">
             <div class="row">
                 <div class="col" data-aos="fade-in" data-aos-delay="0">
-                    <img src="images/clients-05.svg" alt="Image" class="img-fluid">
+                    <img src="assets/images/clients-05.svg" alt="Image" class="img-fluid">
                 </div>
                 <div class="col" data-aos="fade-in" data-aos-delay="100">
-                    <img src="images/clients-02.svg" alt="Image" class="img-fluid">
+                    <img src="assets/images/clients-02.svg" alt="Image" class="img-fluid">
                 </div>
                 <div class="col" data-aos="fade-in" data-aos-delay="200">
-                    <img src="images/clients-03.svg" alt="Image" class="img-fluid">
+                    <img src="assets/images/clients-03.svg" alt="Image" class="img-fluid">
                 </div>
                 <div class="col" data-aos="fade-in" data-aos-delay="300">
-                    <img src="images/clients-01.svg" alt="Image" class="img-fluid">
+                    <img src="assets/images/clients-01.svg" alt="Image" class="img-fluid">
                 </div>
                 <div class="col" data-aos="fade-in" data-aos-delay="400">
-                    <img src="images/clients-04.svg" alt="Image" class="img-fluid">
+                    <img src="assets/images/clients-04.svg" alt="Image" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -123,7 +288,7 @@
         <div class="container">
             <div class="row mb-5 justify-content-center">
                 <div class="col-md-8 text-center">
-                    <h2 class="site-section-heading text-center">Our Works</h2>
+                    <h2 class="site-section-heading text-center">#NBCTRADEFAIR IN PICTURES</h2>
                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, itaque neque, delectus odio iure explicabo.</p>
                 </div>
             </div>
@@ -131,116 +296,67 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_1.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Laptop on the Table</h2>
-                            <span class="category">Web Application</span>
-                        </div>
+                    <a href="assets/images/1.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/1.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_2.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Wrist Watches</h2>
-                            <span class="category">Branding</span>
-                        </div>
+                    <a href="assets/images/2.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/2.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_3.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Nike Shoe</h2>
-                            <span class="category">Website</span>
-                        </div>
+                    <a href="assets/images/3.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/3.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
 
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_4.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_4.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Tall Chair</h2>
-                            <span class="category">Web Application</span>
-                        </div>
+                    <a href="assets/images/4.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/4.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_5.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_5.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Drone</h2>
-                            <span class="category">Branding</span>
-                        </div>
+                    <a href="assets/images/5.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/5.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_6.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_6.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Architect</h2>
-                            <span class="category">Website</span>
-                        </div>
+                    <a href="assets/images/6.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/6.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
 
 
-
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_7.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_7.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Flower</h2>
-                            <span class="category">Web Application</span>
-                        </div>
+                    <a href="assets/images/7.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/7.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_8.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_8.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Headset</h2>
-                            <span class="category">Branding</span>
-                        </div>
+                    <a href="assets/images/8.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/8.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_9.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_9.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Amazon Speaker</h2>
-                            <span class="category">Website</span>
-                        </div>
+                    <a href="assets/images/9.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/9.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
 
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_10.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_10.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Battle Creek</h2>
-                            <span class="category">Web Application</span>
-                        </div>
+                    <a href="assets/images/10.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/10.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_11.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_11.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Nouri</h2>
-                            <span class="category">Branding</span>
-                        </div>
+                    <a href="assets/images/11.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/11.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <a href="images/img_12.jpg" class="media-1" data-fancybox="gallery">
-                        <img src="images/img_12.jpg" alt="Image" class="img-fluid">
-                        <div class="media-1-content">
-                            <h2>Fiber Cloth</h2>
-                            <span class="category">Website</span>
-                        </div>
+                    <a href="assets/images/12.jpg" class="media-1" data-fancybox="gallery">
+                        <img src="assets/images/12.jpg" alt="Image" class="img-fluid">
                     </a>
                 </div>
 
@@ -577,8 +693,6 @@
             </div>
         </div>
     </section>
-
-
 
 
     <section class="site-section" id="contact-section">
