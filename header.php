@@ -401,6 +401,7 @@
 
         @media screen and (max-width: 1020px) {
             .c-nav.c-nav--mobile-only {
+                top: -17px;
                 display: block;
                 overflow-x: hidden
             }
