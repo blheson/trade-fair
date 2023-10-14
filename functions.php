@@ -59,7 +59,7 @@ function handle_payment_form($data)
         'https://api.paystack.co/transaction/verify/' . $body['txref'],
         array(
             'headers' =>
-            array('authorization' => 'Bearer sk_test_b3e8412fc75807083aae1cd4514e8166d57b1ab5')
+            array('authorization' => 'Bearer xxxxxx')
         )
     );
     $apiBody     = json_decode(wp_remote_retrieve_body($apiResponse), true);
