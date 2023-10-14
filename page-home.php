@@ -30,22 +30,13 @@ get_header();
         </div>
     </a>
 
-
-
-
-
-
-
     <nav>
         <div class="c-nav c-nav--green">
             <div class="c-nav--left">
-                <a href="https://paystack.com/" class="c-nav__logo">
+                <a href="https://blessingudor.com" class="c-nav__logo">
                     LOGO
-
                 </a>
                 <!-- <ul class="c-nav-menu c-nav-menu--horizontal">
-
-
                     <li class="c-nav-menu__item u-has-dropdown u-has-dropdown--two-sides">
                         <a href="#">Learn
                             <span class="u-icon-arrow"></span>
@@ -160,17 +151,17 @@ get_header();
                         <div class="c-dropdown c-dropdown--flip c-dropdown--reversed c-dropdown--sm u-text--no-wrap">
                             <ul class="c-nav-menu u-text--left">
                                 <li class="c-nav-menu__item">
-                                    <a href="https://paystack.com/gh/?localeUpdate=true">
+                                    <a href="https://blessingudor.comgh/?localeUpdate=true">
                                         <span class="u-flag-icon u-flag-icon--gh"></span><span>Ghana</span>
                                     </a>
                                 </li>
                                 <li class="c-nav-menu__item">
-                                    <a href="https://paystack.com/ke/?localeUpdate=true">
+                                    <a href="https://blessingudor.comke/?localeUpdate=true">
                                         <span class="u-flag-icon u-flag-icon--ke"></span><span>Kenya</span>
                                     </a>
                                 </li>
                                 <li class="c-nav-menu__item">
-                                    <a href="https://paystack.com/za/?localeUpdate=true">
+                                    <a href="https://blessingudor.comza/?localeUpdate=true">
                                         <span class="u-flag-icon u-flag-icon--za"></span><span>South Africa</span>
                                     </a>
                                 </li>
@@ -188,7 +179,7 @@ get_header();
         <div class="c-nav c-nav--mobile-only c-nav--green">
             <div class="c-nav__header">
                 <div class="c-nav--left">
-                    <a href="https://paystack.com/" class="c-nav__logo">
+                    <a href="https://blessingudor.com" class="c-nav__logo">
                         logo
                     </a>
                 </div>
@@ -438,16 +429,18 @@ get_header();
                             <p class="u-text-summary u-animate u-animate__delay--300 u-animate__duration--600 u-animate--glide-up">Register to join the numerous buyers and sellers attending the event</p>
                         </div>
                         <div class="c-hero__cta u-animate u-animate__ease--custom-1 u-animate__delay--400 u-animate__duration--1000 u-animate--fade-in">
-                            <a href="#" class="c-button--lg c-button c-button--primary" data-track="" data-track-section="Hero">
+                            <span href="#" class="c-button--lg c-button c-button--primary" data-track="" data-track-section="Hero" onclick="BabyFairTheme.triggerBuyerForm()">
                                 Register as a buyer
-                            </a>
-                            <a href="https://paystack.com/contact/sales#form" class="c-button c-button--primary c-button--demo c-button--link" data-track="" data-track-section="Hero">
+                            </span>
+                            <style>
+
+                            </style>
+                            <a href="https://blessingudor.comcontact/sales#form" class="c-button c-button--primary c-button--demo c-button--link" data-track="" data-track-section="Hero">
                                 <span class="c-button__text">
                                     or register as a seller
                                 </span>
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -117,6 +117,59 @@
         </section>
 
     </div><!-- .site-info -->
+    <!-- //BUYER REGISTRATION FORM -->
+    <section id="trade-fair-registration-form">
+        <div class="trade-fair-pop-up-form">
+            <div class="access-wrap animated fadeIn ng-scope">
+
+                <div class="access-box access-box-will-flip">
+                    <h1 class="access-box-title text-center m-b-lg m-t-none ng-binding">Reserve A space</h1>
+                    <form name="signupForm" class="form-validation ng-invalid ng-invalid-required ng-valid-email ng-valid-pattern ng-dirty ng-valid-parse">
+
+                        <div class="form-group">
+                            <label class="control-label ng-binding">Name</label>
+                            <input type="text" ng-model="credentials.first_name" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="" data-testid="firstName">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label ng-binding">Email</label>
+                            <input type="email" ng-model="credentials.first_name" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="" data-testid="firstName">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label ng-binding">Phone</label>
+                            <input type="text" ng-model="credentials.first_name" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="" data-testid="firstName">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label ng-binding">What type of business do you own?</label>
+                            <div class="radio">
+                                <select name="businessType" id="" class="form-control">
+                                    <option value="
+                                    ">Type</option>
+                                    <option value="seller">Seller</option>
+                                    <option value="buyer">Buyer</option>
+                                </select>
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="flex-just-content">
+
+                                <a href="#" data-track="" data-track-section="Nav" class="c-button c-button c-button--primary">
+                                    submit
+                                </a>
+                                <div>
+                                    <h2> N <span id="trade-fair-form-price"> </span></h2>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
 </footer><!-- #colophon -->
 
 </div><!-- #page -->
