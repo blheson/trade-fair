@@ -59,7 +59,7 @@ function handle_payment_form($data)
         'https://api.paystack.co/transaction/verify/' . $body['txref'],
         array(
             'headers' =>
-            array('authorization' => 'Bearer xxxxxx')
+            array('authorization' => 'Bearer sk_test_b3e8412fc75807083aae1cd4514e8166d57b1ab5')
         )
     );
     $apiBody     = json_decode(wp_remote_retrieve_body($apiResponse), true);
@@ -76,7 +76,7 @@ function handle_payment_form($data)
 function trade_order($body, $txBody)
 {
     $order = wc_create_order();
-    $order->set_status('wc-completed');
+    $order->set_status('wc-completed', 'Order is created with ref ' . $body['txref'] . ' and type: ' . $body['businessType']);
     // $order->set_status( 'wc-completed', 'You can pass some order notes here...' );
     update_post_meta($order->ID, 'txref', $body['txref']);
     update_post_meta($order->ID, 'businessType', $body['businessType']);
@@ -97,7 +97,9 @@ function trade_order($body, $txBody)
     $order->set_address($address, 'billing');
     $order->set_transaction_id($body['txref']);
     $amount = $txBody['amount'] / 100;
-    $order->set_total($amount);
+    // $order->set_total($amount);
+
+    $order->payment_complete();
     $order->save();
     return $order;
 }

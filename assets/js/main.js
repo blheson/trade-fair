@@ -1,4 +1,4 @@
-console.log('Here now')
+console.log('Active', '0.1.4')
 
 
 window.BabyFairTheme = {
@@ -10,11 +10,11 @@ window.BabyFairTheme = {
     tradeFairFormPrice: document.getElementById('trade-fair-form-price'),
     orderAmount: 0,
     orderType: 'SELLER',
-    triggerBuyerForm: (type='buyer') => {
+    triggerBuyerForm: (type = 'buyer') => {
 
         BabyFairTheme.updateType(type)
         let registerBuyerForm = BabyFairTheme.registerBuyerForm || document.getElementById('trade-fair-registration-form')
-   
+
         if (!registerBuyerForm) {
             window.location.reload();
         }
@@ -28,6 +28,8 @@ window.BabyFairTheme = {
             return;
         }
         registerBuyerForm.style.display = 'none';
+        BabyFairTheme.showPaymentForm();
+
     },
     updatePrice: () => {
         console.log(' [ Updating Price  ]', BabyFairTheme.orderType)
@@ -44,7 +46,7 @@ window.BabyFairTheme = {
                 break;
         }
     },
-    updateType : (value)=>{
+    updateType: (value) => {
 
         if (value === 'buyer') {
             BabyFairTheme.orderType = BabyFairTheme.OrderEnum.BUYER
@@ -54,12 +56,12 @@ window.BabyFairTheme = {
         }
 
         const inputBoxType = document.forms.signupForm.querySelector('select[name=businessType]');
-        
-        if(inputBoxType.value != BabyFairTheme.orderType){
+
+        if (inputBoxType.value != BabyFairTheme.orderType) {
             inputBoxType.value = BabyFairTheme.orderType.toLowerCase()
         }
         BabyFairTheme.updatePrice();
- 
+
 
     },
     setUp: () => {
@@ -71,7 +73,7 @@ window.BabyFairTheme = {
 
         inputBoxType.addEventListener('change', (e) => {
             BabyFairTheme.updateType(e.target.value);
-         
+
         })
         const paymentForm = document.forms.signupForm;
         paymentForm.addEventListener("submit", BabyFairTheme.payWithPaystack, false);
@@ -97,37 +99,42 @@ window.BabyFairTheme = {
 
     },
     submitForm: (response) => {
+        try {
+            const formData = {
+                email: document.forms.signupForm.elements.email.value,
+                businessType: document.forms.signupForm.elements.businessType.value,
+                fullname: document.forms.signupForm.elements.fullname.value,
+                phone: document.forms.signupForm.elements.phone.value,
+                nonce: document.forms.signupForm.elements._tradewpnonce.value,
+                trade_nonce: document.forms.signupForm.elements.trade_nonce.value,
+                txref: response.reference
+            }
 
-        const formData = {
-            email: document.forms.signupForm.elements.email.value,
-            businessType: document.forms.signupForm.elements.businessType.value,
-            fullname: document.forms.signupForm.elements.fullname.value,
-            phone: document.forms.signupForm.elements.phone.value,
-            nonce: document.forms.signupForm.elements._tradewpnonce.value,
-            trade_nonce: document.forms.signupForm.elements.trade_nonce.value,
-            txref: response.reference
+            const request = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            }
+            const origin = window.location.origin
+            fetch(`${origin}/wp-json/trade-fair/payment`, request).then(
+                response => {
+                    return response.json();
+                }
+            ).then(result => {
+                if (result.orderId) {
+                    BabyFairTheme.orderId = result.orderId
+                    BabyFairTheme.showSuccespage(result, response.reference);
+                } else {
+                    alert(result.message || 'Error with payment');
+                }
+                console.log({ result })
+            })
+        } catch (error) {
+            console.error({ error })
         }
 
-        const request = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        }
-        fetch('http://localhost:10013/wp-json/trade-fair/payment', request).then(
-            response => {
-                return response.json();
-            }
-        ).then(result => {
-            if (result.orderId) {
-                BabyFairTheme.orderId = result.orderId
-                BabyFairTheme.showSuccespage(result, response.reference);
-            } else {
-                alert(result.message || 'Error with payment');
-            }
-            console.log({ result })
-        })
 
     },
     showSuccespage(result, reference) {
@@ -172,7 +179,7 @@ window.BabyFairTheme = {
         //     transaction: "3193196628",
         //     trxref: "T240558480978169"
         // }
- 
+
         let handler = PaystackPop.setup({
             key: 'pk_test_fa0305bb378324334f02ff3adc48f974e521afb2', // Replace with your public key
             email: email,
@@ -180,7 +187,7 @@ window.BabyFairTheme = {
             //   ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
             // label: "Optional string that replaces customer email"
             onClose: function () {
-                alert('Window closed.');
+                // alert('Window closed.');
             },
             callback: function (response) {
                 let message = 'Payment complete! Reference: ' + response.reference;
