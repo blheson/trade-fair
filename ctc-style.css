@@ -1917,3 +1917,41 @@ ul.u-list--centered {
     justify-content: space-between;
     align-items: center;
 }
+#show-success-page{
+    display: none;
+}
+#show-success-page h2,#show-success-page{
+    text-align: center;
+}
+#show-success-page h2{
+    color: #0a635f;
+}
+.ref-box-details{
+    margin-top: 50px;
+}
+#show-payment-form input{
+    border: 1px solid transparent;
+    border-color: #dee5e7;
+    border-radius: 2px;
+}
+.payment-submit{
+    padding: 10px 40px;
+}
+.close-payment-modal {
+    position: relative;
+}
+.close-payment-modal  span{
+    position: absolute;
+    right: 2px;
+    cursor: pointer;
+    top: 3px;
+    z-index: 101;
+    height: 30px;
+    width: 30px;
+    background: red;
+    text-align: center;
+    border-radius: 50%;
+    padding: 0px;
+    color: #fff;
+    font-size: 19px;
+}

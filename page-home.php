@@ -120,7 +120,7 @@ get_header();
             <div class="c-nav--right">
                 <ul class="c-nav-menu c-nav-menu--horizontal">
 
-                    <li class="c-nav-menu__item u-has-dropdown">
+                    <!-- <li class="c-nav-menu__item u-has-dropdown">
                         <a href="#">Support
                             <span class="u-icon-arrow"></span>
                         </a>
@@ -135,15 +135,11 @@ get_header();
 
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
                     <li class="c-nav-menu__item c-nav-menu__item--green">
-                        <a href="https://dashboard.paystack.com/#/login">Login</a>
+                        <a href="/contact">Contact Us</a>
                     </li>
-                    <li class="c-nav-menu__item--cta">
-                        <a href="#" data-track="" data-track-section="Nav" class="c-button c-button c-button--primary">
-                            Create free account
-                        </a>
-                    </li>
+
                     <li class="c-nav-menu__item u-has-dropdown c-nav-menu__item--countries">
                         <a href="#">
                             <span class="u-flag-icon u-flag-icon--ng"></span>
@@ -429,17 +425,17 @@ get_header();
                             <p class="u-text-summary u-animate u-animate__delay--300 u-animate__duration--600 u-animate--glide-up">Register to join the numerous buyers and sellers attending the event</p>
                         </div>
                         <div class="c-hero__cta u-animate u-animate__ease--custom-1 u-animate__delay--400 u-animate__duration--1000 u-animate--fade-in">
-                            <span href="#" class="c-button--lg c-button c-button--primary" data-track="" data-track-section="Hero" onclick="BabyFairTheme.triggerBuyerForm()">
+                            <span href="#" class="c-button--lg c-button c-button--primary" data-track="" data-track-section="Hero" onclick="BabyFairTheme.triggerBuyerForm('buyer')">
                                 Register as a buyer
                             </span>
                             <style>
 
                             </style>
-                            <a href="https://blessingudor.comcontact/sales#form" class="c-button c-button--primary c-button--demo c-button--link" data-track="" data-track-section="Hero">
-                                <span class="c-button__text">
+                            <span class="c-button c-button--primary c-button--demo c-button--link" data-track="" data-track-section="Hero">
+                                <span class="c-button__text" onclick="BabyFairTheme.triggerBuyerForm('seller')">
                                     or register as a seller
                                 </span>
-                            </a>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -729,7 +725,7 @@ get_header();
                     <img class=" u-lazyload--is-done" data-src="https://assets.paystack.com/assets/img/logos/merchants/_300xAUTO_crop_center-center_none/carbon-dark.svg" alt="Carbon logo" src="https://assets.paystack.com/assets/img/logos/merchants/_300xAUTO_crop_center-center_none/carbon-dark.svg">
                 </div>
             </div>
-            <div> <a href="#" class="c-button--lg c-button c-button--primary" data-track="" data-track-section="Hero">
+            <div> <a href="https://forms.gle/XyZxHBnRgNK25Nsn7" class="c-button--lg c-button c-button--primary" data-track="" data-track-section="Hero">
                     Register as a sponsor
                 </a></div>
 

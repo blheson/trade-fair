@@ -121,55 +121,72 @@
     <section id="trade-fair-registration-form">
         <div class="trade-fair-pop-up-form">
             <div class="access-wrap animated fadeIn ng-scope">
-
+                <div class="close-payment-modal" style="position:relative;">
+                    <span id="close-payment-modal-x">x</span>
+                </div>
                 <div class="access-box access-box-will-flip">
-                    <h1 class="access-box-title text-center m-b-lg m-t-none ng-binding">Reserve A space</h1>
-                    <form name="signupForm" class="form-validation ng-invalid ng-invalid-required ng-valid-email ng-valid-pattern ng-dirty ng-valid-parse">
-
-                        <div class="form-group">
-                            <label class="control-label ng-binding">Name</label>
-                            <input type="text" ng-model="credentials.first_name" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="" data-testid="firstName">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label ng-binding">Email</label>
-                            <input type="email" ng-model="credentials.first_name" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="" data-testid="firstName">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label ng-binding">Phone</label>
-                            <input type="text" ng-model="credentials.first_name" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="" data-testid="firstName">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label ng-binding">What type of business do you own?</label>
-                            <div class="radio">
-                                <select name="businessType" id="" class="form-control">
-                                    <option value="
-                                    ">Type</option>
-                                    <option value="seller">Seller</option>
-                                    <option value="buyer">Buyer</option>
-                                </select>
-
-
+                    <div id="show-payment-form">
+                        <h1 class="access-box-title text-center m-b-lg m-t-none ng-binding">Reserve A space</h1>
+                        <form name="signupForm" class="form-validation ng-invalid ng-invalid-required ng-valid-email ng-valid-pattern ng-dirty ng-valid-parse">
+                            <input type="hidden" name="_tradewpnonce" value="<?= wp_create_nonce('trade-fair-payment-action') ?>">
+                            <?php wp_nonce_field('make_payment', 'trade_nonce'); ?>
+                            <div class="form-group">
+                                <label class="control-label ng-binding">Name</label>
+                                <input type="text" name="fullname" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="flex-just-content">
+                            <div class="form-group">
+                                <label class="control-label ng-binding">Email</label>
+                                <input type="email" name="email" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label ng-binding">Phone</label>
+                                <input type="text" name="phone" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="">
+                            </div>
 
-                                <a href="#" data-track="" data-track-section="Nav" class="c-button c-button c-button--primary">
-                                    submit
-                                </a>
-                                <div>
-                                    <h2> N <span id="trade-fair-form-price"> </span></h2>
+                            <div class="form-group">
+                                <label class="control-label ng-binding">Choose How you want to participate?</label>
+                                <div class="radio">
+                                    <select name="businessType" id="" class="form-control">
+
+                                        <option value="seller">Seller</option>
+                                        <option value="buyer">Buyer</option>
+                                    </select>
+
+
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="flex-just-content">
 
+                                    <button class="payment-submit .c-button--primary">
+                                        submit
+                                    </button>
+                                    <div>
+                                        <h2> NGN <span id="trade-fair-form-price"> </span></h2>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div id="show-success-page">
+                        <div>
+                            <h2>Success</h2>
+                            <p>Your Payment has been confirmed</p>
+                            <div class="ref-box-details">
+                                <p>Reference Id</p>
+                                <h1 id="success-ref">
+                                </h1>
+                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
+
             </div>
         </div>
 
     </section>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
 </footer><!-- #colophon -->
 
 </div><!-- #page -->
