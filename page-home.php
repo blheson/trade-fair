@@ -557,7 +557,7 @@ get_header();
                             <h4 class="u-h4-bolder">Exposure Amplification: </h4>
                             <p> The 9jababy Trade Fair provides vendors with a high-visibility platform to showcase their products to a diverse and engaged audience. This exposure amplification significantly boosts brand recognition and drives sales.</p>
                             <div class="c-card__link">
-                                <a href="/internationals" class="c-button c-button--primary c-button--link">
+                                <a href="#" class="c-button c-button--primary c-button--link">
                                     <span class="c-button__icon">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="16" height="16" fill="#3BB75E" fill-opacity="0" transform="translate(2 2)"></rect>
@@ -588,7 +588,7 @@ get_header();
                             <h4 class="u-h4-bolder">Targeted Marketing:</h4>
                             <p> Vendors benefit from a tailored environment where their products are directly exposed to parents and caregivers. This targeted marketing ensures that their offerings reach the right audience, resulting in higher conversion rates.</p>
                             <div class="c-card__link">
-                                <a href="/entrepreneurs" class="c-button c-button--primary c-button--link">
+                                <a href="#" class="c-button c-button--primary c-button--link">
                                     <span class="c-button__icon">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="16" height="16" fill="#3BB75E" fill-opacity="0" transform="translate(2 2)"></rect>
@@ -619,7 +619,7 @@ get_header();
                             <h4 class="u-h4-bolder">Networking Opportunities:</h4>
                             <p> The trade fair fosters valuable connections among vendors, industry experts, and potential collaborators. These networking opportunities facilitate knowledge exchange and potential partnerships, enhancing vendors' growth and innovation in the baby product market.</p>
                             <div class="c-card__link">
-                                <a href="/corporates" class="c-button c-button--primary c-button--link">
+                                <a href="#" class="c-button c-button--primary c-button--link">
                                     <span class="c-button__icon">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="16" height="16" fill="#3BB75E" fill-opacity="0" transform="translate(2 2)"></rect>

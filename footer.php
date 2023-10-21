@@ -105,7 +105,7 @@
                             <ul class="c-footer-list">
                                 <li class="c-footer-list__item">126 Joel Ogunnaike Street,<br>Ikeja GRA, Ikeja,<br>Lagos, Nigeria</li>
                                 <li class="c-footer-list__item c-footer-list__item--link">
-                                    <a href="tel:+23416316160 ">xxxxxxxx</a>
+                                    <a href="tel:+23416316160 ">09168390616</a>
                                 </li>
                             </ul>
                         </div>
