@@ -29,7 +29,7 @@
                         <h4 class="c-footer__header">Contact</h4>
                         <ul class="c-footer-list">
                             <li class="c-footer-list__item c-footer-list__item--link c-footer-list__item--lowercase u-flex--m-b-sm">
-                                <a href="#">hello@tradefair.com</a>
+                                <a href="#">9jababytradefair@gmail.com</a>
                             </li>
                             <li>
                                 <ul class="c-footer-list c-footer-list--social">
@@ -76,7 +76,7 @@
 
                                         </a>
                                     </li>
-                                    <li class="c-footer-list__item">
+                                    <!-- <li class="c-footer-list__item">
                                         <a href="#" target="_blank" rel="noopener">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect width="20" height="20" fill="white"></rect>
@@ -84,8 +84,8 @@
                                             </svg>
 
                                         </a>
-                                    </li>
-                                    <li class="c-footer-list__item">
+                                    </li> -->
+                                    <!-- <li class="c-footer-list__item">
                                         <a href="#" target="_blank" rel="noopener">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect width="20" height="20" fill="white"></rect>
@@ -94,7 +94,7 @@
                                             </svg>
 
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
                         </ul>

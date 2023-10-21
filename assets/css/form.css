@@ -1437,12 +1437,12 @@ hr {
     clip: auto
 }
 
-.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6 {
+/* .h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6 {
     font-family: inherit;
     font-weight: 500;
     line-height: 1.1;
     color: inherit
-}
+} */
 
 .h1 .small,.h1 small,.h2 .small,.h2 small,.h3 .small,.h3 small,.h4 .small,.h4 small,.h5 .small,.h5 small,.h6 .small,.h6 small,h1 .small,h1 small,h2 .small,h2 small,h3 .small,h3 small,h4 .small,h4 small,h5 .small,h5 small,h6 .small,h6 small {
     font-weight: 400;
@@ -10340,11 +10340,11 @@ a.list-group-item.hover,a.list-group-item:focus,a.list-group-item:hover {
     color: rgba(0,0,0,.1);
     background: 0 0
 }
-
+/* 
 .tooltip {
     font-family: inherit;
     z-index: 10000
-}
+} */
 
 .tooltip-inner {
     padding: 10px
@@ -10354,42 +10354,27 @@ a.list-group-item.hover,a.list-group-item:focus,a.list-group-item:hover {
     font-family: 'Graphik';
     font-style: normal;
     font-weight: 400;
-    src: url(/assets/fonts/graphik/Graphik-Regular.woff) format('woff');
+    src: url(/wp-content/themes/trade-fair/assets/fonts/graphik/graphik_regular.woff) format('woff');
     text-rendering:optimizeLegibility}
-
-@font-face {
-    font-family: 'Graphik';
-    font-style: italic;
-    font-weight: 400;
-    src: url(/assets/fonts/graphik/Graphik-RegularItalic.woff) format('woff');
-    text-rendering:optimizeLegibility}
-
 @font-face {
     font-family: 'Graphik';
     font-style: normal;
     font-weight: 300;
-    src: url(/assets/fonts/graphik/Graphik-Light.woff) format('woff');
+    src: url(/wp-content/themes/trade-fair/assets/fonts/graphik/Graphik-Light.woff) format('woff');
     text-rendering:optimizeLegibility}
 
 @font-face {
     font-family: 'Graphik';
     font-style: normal;
     font-weight: 700;
-    src: url(/assets/fonts/graphik/Graphik-Medium.woff) format('woff');
+    src: url(/wp-content/themes/trade-fair/assets/fonts/graphik/graphik_medium.woff) format('woff');
     text-rendering:optimizeLegibility}
 
 @font-face {
     font-family: 'Boing';
     font-style: normal;
     font-weight: 700;
-    src: url(/assets/fonts/boing/Boing-Semibold.woff) format('woff');
-    text-rendering:optimizeLegibility}
-
-@font-face {
-    font-family: 'AlexBrush';
-    font-style: normal;
-    font-weight: 700;
-    src: url(/assets/fonts/AlexBrush-Regular.ttf) format('truetype');
+    src: url(/wp-content/themes/trade-fair/assets/fonts/boing/Boing-Semibold.woff) format('woff');
     text-rendering:optimizeLegibility}
 
 .arrow,.arrow:after {
@@ -14886,12 +14871,12 @@ a.text-warning-alt:hover {
     float: left
 }
 
-.choose-dates datepicker {
+/* .choose-dates datepicker {
     width: 50%;
     margin: 0;
     font-family: inherit;
     float: left
-}
+} */
 
 .choose-dates datepicker input {
     min-width: 110px;
@@ -18183,7 +18168,7 @@ form[name=signupForm] .signup-phone-number .country-dropdown,form[name=signupFor
     box-shadow: none
 }
 
-.introjs-button {
+/* .introjs-button {
     font-family: inherit;
     font-size: 12px;
     display: inline-block;
@@ -18198,7 +18183,7 @@ form[name=signupForm] .signup-phone-number .country-dropdown,form[name=signupFor
     box-shadow: 0 1px 1px rgba(0,0,0,.03);
     color: #a4a59a;
     margin-right: 5px
-}
+} */
 
 .introjs-button:active,.introjs-button:focus {
     background: 0 0

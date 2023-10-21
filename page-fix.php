@@ -20,7 +20,12 @@ get_header();
         <div class="c-banner c-banner--header">
             <div class="c-banner__background"></div>
             <div class="c-banner__content">
-
+                <div class="c-banner__text c-banner__text--desktop-only">
+                    🎉 New: Paystack Virtual Terminal — accept blazing fast in-person payments at scale, with ZERO hardware costs.
+                </div>
+                <div class="c-banner__text c-banner__text--mobile-only">
+                    🎉 New: Paystack Virtual Terminal — accept blazing fast in-person payments at scale, with ZERO hardware costs.
+                </div>
             </div>
         </div>
     </a>

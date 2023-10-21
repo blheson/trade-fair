@@ -1928,11 +1928,12 @@
             opacity: 0.3
         }
 
+        /* 
         .c-section-pattern--checked:before {
             background-image: url("/assets/img/patterns/checked-pattern-blue.png");
             background-size: 100% 100%;
             background-repeat: no-repeat
-        }
+        } */
 
         @media screen and (max-width: 600px) {
             .c-section-pattern--checked:before {
