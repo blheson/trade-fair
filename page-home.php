@@ -417,7 +417,7 @@ get_header();
                 <div class="c-hero__side">
                     <div class="c-hero__body">
                         <div class="c-hero__heading u-animate--slideUp">
-                            <h1 class="u-animate u-animate__delay--300 u-animate--glide-up">First Baby Trade Fair</h1>
+                            <h1 class="u-animate u-animate__delay--300 u-animate--glide-up">Nigeria's biggest baby trade fair.</h1>
                             <p class="u-text-summary u-animate u-animate__delay--300 u-animate__duration--600 u-animate--glide-up">Register to join the numerous buyers and sellers attending the event</p>
                         </div>
                         <div class="c-hero__cta u-animate u-animate__ease--custom-1 u-animate__delay--400 u-animate__duration--1000 u-animate--fade-in">
