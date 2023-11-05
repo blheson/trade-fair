@@ -18,9 +18,9 @@
 </div><!-- #content -->
 
 
-<footer id="colophon">
+<footer id="colophon footer-home">
     <div class="site-info">
-        <section class="l-section l-section--pad-bottom l-section--white">
+        <section class="l-section l-section--pad-bottom l-section--white footer-home-section">
             <div class="l-container l-container--lg">
 
                 <div class="c-footer__row" style="border-top: 1px solid rgba(240,242,243,0.85);">
@@ -186,6 +186,38 @@
         </div>
 
     </section>
+    <!-- <section class="elementor-section elementor-top-section elementor-element elementor-element-da7ec61 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="da7ec61" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+        <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-row">
+                <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-aacc09e" data-id="aacc09e" data-element_type="column">
+                    <div class="elementor-column-wrap elementor-element-populated">
+                        <div class="elementor-widget-wrap">
+                            <div class="elementor-element elementor-element-bef19be elementor-widget elementor-widget-copyright" data-id="bef19be" data-element_type="widget" data-settings="{&quot;align&quot;:&quot;left&quot;,&quot;align_mobile&quot;:&quot;center&quot;}" data-widget_type="copyright.default">
+                                <div class="elementor-widget-container">
+                                    <div class="hfe-copyright-wrapper">
+                                        <span>Copyright © 2023 LAGOS INTERNATIONAL TRADE FAIR</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4242c72" data-id="4242c72" data-element_type="column">
+                    <div class="elementor-column-wrap elementor-element-populated">
+                        <div class="elementor-widget-wrap">
+                            <div class="elementor-element elementor-element-78ec918 elementor-widget elementor-widget-copyright" data-id="78ec918" data-element_type="widget" data-settings="{&quot;align&quot;:&quot;right&quot;,&quot;align_mobile&quot;:&quot;center&quot;}" data-widget_type="copyright.default">
+                                <div class="elementor-widget-container">
+                                    <div class="hfe-copyright-wrapper">
+                                        <span>Powered by THE LAGOS CHAMBER OF COMMERCE &amp; INDUSTRY</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
     <script src="https://js.paystack.co/v1/inline.js"></script>
 </footer><!-- #colophon -->
 

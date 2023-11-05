@@ -1274,6 +1274,7 @@
             margin: 0 auto
         }
 
+
         .c-hero--has-video .c-hero__body {
             transition-delay: 0.3s
         }
@@ -3019,7 +3020,8 @@
 
         .c-footer-list--social .c-footer-list__item {
             padding-right: 20px;
-            margin-bottom: 0
+            margin-bottom: 0;
+            list-style-type: none;
         }
 
         .c-footer-list--social .c-footer-list__item svg {

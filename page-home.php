@@ -13,7 +13,7 @@
  * @package Studio_Grade
  */
 
-get_header();
+get_header('home');
 ?>
 <header style="transform: translateY(-43px);">
     <a class="c-banner__link" id="js-banner" href="https://www.paystack.com/terminal/" style="opacity: 0;">
@@ -406,18 +406,18 @@ get_header();
                     </defs>
                 </svg>
             </div>
-            <div id="js-homepage-animation-tooltip" class="c-homepage-animation__tooltip" style="top: 495.75px; left: 765.156px;">
+            <!-- <div id="js-homepage-animation-tooltip" class="c-homepage-animation__tooltip" style="top: 495.75px; left: 765.156px;">
                 <h5 id="js-homepage-animation-tooltip-title">Get paid from <b>Rio, Brazil</b></h5>
                 <p id="js-homepage-animation-tooltip-caption">Sell to customers all over the world</p>
-            </div>
+            </div> -->
         </div>
 
-        <div id="js-hero" class="c-hero c-hero--double-sided c-hero--has-video">
+        <div id="js-hero" class="c-hero c-hero--double-sided c-hero--has-video hero-bg">
             <div class="l-container l-container--lg u-flex">
                 <div class="c-hero__side">
                     <div class="c-hero__body">
                         <div class="c-hero__heading u-animate--slideUp">
-                            <h1 class="u-animate u-animate__delay--300 u-animate--glide-up">Nigeria's biggest baby trade fair.</h1>
+                            <h1 class="u-animate u-animate__delay--700 u-animate--glide-up hero-title">Nigeria's biggest baby trade fair.</h1>
                             <p class="u-text-summary u-animate u-animate__delay--300 u-animate__duration--600 u-animate--glide-up">Register to join the numerous buyers and sellers attending the event</p>
                         </div>
                         <div class="c-hero__cta u-animate u-animate__ease--custom-1 u-animate__delay--400 u-animate__duration--1000 u-animate--fade-in">
@@ -428,7 +428,7 @@ get_header();
 
                             </style>
                             <span class="c-button c-button--primary c-button--demo c-button--link" data-track="" data-track-section="Hero">
-                                <span class="c-button__text" onclick="BabyFairTheme.triggerBuyerForm('seller')">
+                                <span class="c-button__text seller-reg-text-white" onclick="BabyFairTheme.triggerBuyerForm('seller')">
                                     or Register as a Seller
                                 </span>
                             </span>
@@ -477,11 +477,13 @@ get_header();
                         <figure class="c-feature__image">
                             <div js-animate-in-view="" data-offset="40" class="u-animate u-animate--play" style="opacity: 1;">
                                 <img class=" u-lazyload--is-done" alt="Robust Suite Of Apis Opt" sizes="100vw" src="<?= get_stylesheet_directory_uri() . '/assets/img/Robust-Suite-of-APIs-Opt.png'; ?>" loading="lazy">
+                                <!-- <img class=" u-lazyload--is-done" alt="Robust Suite Of Apis Opt" sizes="100vw" src="<?= get_stylesheet_directory_uri() . '/assets/img/bpst-25-5bf6b848d7558-title.jpg'; ?>" loading="lazy"> -->
+
                             </div>
                         </figure>
                     </div>
                 </div>
-                <div class="c-feature__right">
+                <div class="c-feature__right u-animate u-animate__delay--300 u-animate--glide-up">
 
                     <div class="c-feature__body">
                         <div class="c-feature__text">
@@ -508,7 +510,7 @@ get_header();
                                     </svg>
                                 </span>
                                 <span class="c-button__text">
-                                    learn more
+                                    Learn more
                                 </span>
                             </a>
                         </div>
@@ -523,7 +525,7 @@ get_header();
     <!-- ABOUT SECTION -->
     <!-- TESTIMONIAL SECTION -->
 
-    <section class="l-section l-section--pad-top l-section--pad-bottom l-section--blue">
+    <section class="l-section l-section--pad-top l-section--pad-bottom l-section--blue business-trust-section">
 
         <div class="c-section-pattern c-section-pattern--checked"></div>
 
@@ -643,7 +645,7 @@ get_header();
     </section>
     <!-- TESTIMONIAL SECTION -->
     <!-- //SPONSOR SECTION -->
-    <section class="l-section l-section--pad-top l-section--pad-bottom l-section--white">
+    <section class="l-section l-section--pad-top l-section--pad-bottom l-section--white sponsor-section">
 
         <div class="c-section-pattern "></div>
 
@@ -714,4 +716,4 @@ get_header();
 </div>
 
 <?php
-get_footer();
+get_footer('home');
