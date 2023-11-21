@@ -1908,7 +1908,12 @@ ul.u-list--centered {
 .l-section--pad-top {
     padding-top: 150px
 }
-
+.bold{
+    font-weight: bold;
+}
+.mt-2{
+    margin-top: 20px;
+}
 @media screen and (min-width: 600px) and (max-width: 980px) {
     .l-section--pad-top {
         padding-top: 100px
@@ -2020,7 +2025,7 @@ ul.u-list--centered {
     align-items: center;
 }
 
-#show-success-page {
+#show-success-page,#show-bank-transfer-page {
     display: none;
 }
 

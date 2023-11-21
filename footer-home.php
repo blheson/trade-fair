@@ -180,6 +180,30 @@
                             </div>
                         </div>
                     </div>
+                    <div id="show-bank-transfer-page">
+                        <div>
+                            <h2>Bank Transfer</h2>
+                            <small>Follow the step to complete your registration</small>
+                            <div class="mt-2">
+                                <p class="bold">Step 1</p>
+                                <p>Make a payment to:</p>
+                                <div class="ref-box-detailss">
+
+                                    <div id="success-refs">
+                                        <p> 0699955159</p>
+                                        <p>Eleimon Integrated Services</p>
+                                        <p>Access Bank</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-2">
+                                <p class="bold">Step 2</p>
+
+                                <p>Send an email with the payment evidence to 9jababytradefair@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>

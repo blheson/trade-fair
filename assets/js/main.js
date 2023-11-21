@@ -6,6 +6,7 @@ window.BabyFairTheme = {
         SELLER: 'SELLER',
         BUYER: 'BUYER'
     },
+    formData: {},
     registerBuyerFormElement: document.getElementById('trade-fair-registration-form'),
     tradeFairFormPrice: document.getElementById('trade-fair-form-price'),
     orderAmount: 0,
@@ -76,7 +77,7 @@ window.BabyFairTheme = {
 
         })
         const paymentForm = document.forms.signupForm;
-        paymentForm.addEventListener("submit", BabyFairTheme.payWithPaystack, false);
+        paymentForm.addEventListener("submit", BabyFairTheme.payment, false);
         const close = document.getElementById('close-payment-modal-x');
         close.addEventListener('click', () => {
             BabyFairTheme.closeBuyerForm();
@@ -107,8 +108,10 @@ window.BabyFairTheme = {
                 phone: document.forms.signupForm.elements.phone.value,
                 nonce: document.forms.signupForm.elements._tradewpnonce.value,
                 trade_nonce: document.forms.signupForm.elements.trade_nonce.value,
-                txref: response.reference
+                txref: response.reference,
+                paymentMethod: 'bt'
             }
+            BabyFairTheme.formData = formData;
 
             const request = {
                 method: "POST",
@@ -117,36 +120,66 @@ window.BabyFairTheme = {
                 },
                 body: JSON.stringify(formData),
             }
-            const origin = window.location.origin
+
+            const origin = window.location.origin;
+            console.log({fm:    BabyFairTheme.formData})
+
             fetch(`${origin}/wp-json/trade-fair/payment`, request).then(
                 response => {
                     return response.json();
                 }
             ).then(result => {
-                if (result.orderId) {
-                    BabyFairTheme.orderId = result.orderId
-                    BabyFairTheme.showSuccespage(result, response.reference);
-                } else {
-                    alert(result.message || 'Error with payment');
+                switch (BabyFairTheme.formData.paymentMethod) {
+                    case 'paystack':
+                        if (result.orderId) {
+                            BabyFairTheme.orderId = result.orderId
+                            BabyFairTheme.showSuccespage(result, response.reference);
+                        } else {
+                            alert(result.message || 'Error with payment');
+                        }
+                        break;
+                
+                    default:
+                        BabyFairTheme.orderId = result.orderId
+                        BabyFairTheme.showSuccespage(result, response.reference);
+                        break;
                 }
+             
                 console.log({ result })
             })
         } catch (error) {
             console.error({ error })
         }
-
-
     },
     showSuccespage(result, reference) {
-        const successpage = document.getElementById('show-success-page');
-        if (!successpage) {
-            return;
-        }
+        let successpage,successRef;
         const paymentform = document.getElementById('show-payment-form');
-        const successRef = document.getElementById('success-ref');
-        successRef.innerText = reference || ''
-        paymentform.style.display = 'none'
-        successpage.style.display = 'block'
+        switch (BabyFairTheme.formData.paymentMethod) {
+            case 'paystack':
+                successpage = document.getElementById('show-success-page');
+                if (!successpage) {
+                    return;
+                }
+       
+                successRef = document.getElementById('success-ref');
+                successRef.innerText = reference || ''
+                paymentform.style.display = 'none'
+                successpage.style.display = 'block'
+                break;
+        
+                
+            default:
+                successpage = document.getElementById('show-bank-transfer-page');
+                if (!successpage) {
+                    return;
+                }
+               
+               
+                paymentform.style.display = 'none'
+                successpage.style.display = 'block'
+                break;
+        }
+     
     },
     showPaymentForm() {
 
@@ -159,6 +192,38 @@ window.BabyFairTheme = {
 
         paymentform.style.display = 'block'
         successpage.style.display = 'none'
+    },
+    payment(e) {
+        // if (BabyFairTheme.formData.paymentMethod === 'paystack') {
+        //     BabyFairTheme.payWithPaystack(e)
+        // } else {
+        //     BabyFairTheme.payWithBankTransfer(e)
+        // }
+        BabyFairTheme.formData = {
+            ...BabyFairTheme.formData,
+            paymentMethod:'bt'
+        }
+ 
+        switch (BabyFairTheme.formData.paymentMethod) {
+            case 'paystack':
+                BabyFairTheme.payWithPaystack(e)
+                break;
+            default:
+                BabyFairTheme.payWithBankTransfer(e)
+                break;
+        }
+    },
+    payWithBankTransfer(e) {
+        e.preventDefault();
+        BabyFairTheme.updatePrice();
+        const email = document.forms.signupForm.elements.email.value
+
+        if (!email) {
+            alert('email is missing')
+            return;
+        }
+        BabyFairTheme.submitForm({ reference: new Date().getTime() });
+        // show-bank-transfer-page
     },
     payWithPaystack(e) {
         e.preventDefault();

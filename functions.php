@@ -55,19 +55,22 @@ function handle_payment_form($data)
     if (!$body['email']) {
         return array('error' => true, 'message' => 'Not a valid request. __email');
     }
-    $apiResponse =  wp_remote_get(
-        'https://api.paystack.co/transaction/verify/' . $body['txref'],
-        array(
-            'headers' =>
-            array('authorization' => 'Bearer xxxxxx')
-        )
-    );
-    $apiBody     = json_decode(wp_remote_retrieve_body($apiResponse), true);
+    if ($body['paymentMethod'] === 'bt') {
+        $apiBody = array('email' => $body['email']);
+    } else {
+        $apiResponse =  wp_remote_get(
+            'https://api.paystack.co/transaction/verify/' . $body['txref'],
+            array(
+                'headers' =>
+                array('authorization' => 'Bearer xxxxxx')
+            )
+        );
+        $apiBody     = json_decode(wp_remote_retrieve_body($apiResponse), true);
 
-    if ($apiBody['status'] != true) {
-        return array('error' => true, 'message' => 'Could not verify reference');
+        if ($apiBody['status'] != true) {
+            return array('error' => true, 'message' => 'Could not verify reference');
+        }
     }
-
     $order = trade_order($body, $apiBody);
 
     // "customer"
@@ -76,11 +79,14 @@ function handle_payment_form($data)
 function trade_order($body, $txBody)
 {
     $order = wc_create_order();
-    $order->set_status('wc-completed', 'Order is created with ref ' . $body['txref'] . ' and type: ' . $body['businessType']);
+    if ($body['paymentMethod'] === 'paystack') {
+        $order->set_status('wc-completed', 'Order is created with ref ' . $body['txref'] . ' and type: ' . $body['businessType']);
+    }
+
     // $order->set_status( 'wc-completed', 'You can pass some order notes here...' );
     update_post_meta($order->ID, 'txref', $body['txref']);
     update_post_meta($order->ID, 'businessType', $body['businessType']);
-    $email = $txBody['data']['customer']["email"];
+    $email = isset($txBody['data']['customer']["email"]) ? $txBody['data']['customer']["email"] : $txBody['email'];
     try {
         $productId = wc_get_product_id_by_sku(strtolower($body['businessType']));
         $order->add_product(wc_get_product($productId), 1);
@@ -96,7 +102,7 @@ function trade_order($body, $txBody)
     );
     $order->set_address($address, 'billing');
     $order->set_transaction_id($body['txref']);
-    $amount = $txBody['amount'] / 100;
+    // $amount = $txBody['amount'] / 100;
     // $order->set_total($amount);
 
     $order->payment_complete();
