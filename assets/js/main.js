@@ -1,4 +1,4 @@
-console.log('Active', '0.1.4')
+console.log('Active', '0.1.6')
 
 
 window.BabyFairTheme = {
@@ -35,13 +35,17 @@ window.BabyFairTheme = {
     updatePrice: () => {
         console.log(' [ Updating Price  ]', BabyFairTheme.orderType)
         const tradeFairPriceElement = BabyFairTheme.tradeFairFormPrice || document.getElementById('trade-fair-form-price');
+        const bankTransferAmount= document.querySelector('.bank_transfer_amount');
+    
         switch (BabyFairTheme.orderType) {
             case BabyFairTheme.OrderEnum.BUYER:
                 tradeFairPriceElement.innerText = '1000'
+                bankTransferAmount.innerText = '1000'
                 BabyFairTheme.orderAmount = '1000'
                 break;
             case BabyFairTheme.OrderEnum.SELLER:
             default:
+                bankTransferAmount.innerText = '5000'
                 tradeFairPriceElement.innerText = '5000'
                 BabyFairTheme.orderAmount = '5000'
                 break;

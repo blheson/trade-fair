@@ -195,6 +195,9 @@
                                         <p>Access Bank</p>
                                     </div>
                                 </div>
+                                <div>
+                                    Amount: <p class="bank_transfer_amount"></p>
+                                </div>
                             </div>
 
                             <div class="mt-2">
