@@ -247,62 +247,7 @@ $products = wc_get_products(array(
                                 <span class="c-button__text">Back</span>
                             </button>
                         </div>
-                        <div class="c-body">
-                            <div class="c-nav-menu-links" data-menu-link-group="why-paystack">
-                                <ul class="c-nav-menu__group">
-                                    <li class="c-nav-menu__item"><a href="/why-choose-paystack">Why Choose Paystack</a></li>
-                                    <li class="c-nav-menu__item"><a href="/success-rates">Success Rates</a></li>
-                                    <li class="c-nav-menu__item"><a href="/demo">Demo</a></li>
-                                </ul>
-                                <ul class="c-nav-menu__group">
-                                    <div class="c-nav-menu__label">Your Growth Stage</div>
-                                    <li class="c-nav-menu__item"><a href="/entrepreneurs">For Entrepreneurs</a></li>
-                                    <li class="c-nav-menu__item"><a href="/corporates">For Corporates</a></li>
-                                    <li class="c-nav-menu__item"><a href="/internationals">For Global Brands</a></li>
-                                    <li class="c-nav-menu__item"><a href="/startups">For Startups</a></li>
-                                </ul>
-                                <ul class="c-nav-menu__group">
-                                    <div class="c-nav-menu__label">Your Business Type</div>
-                                    <li class="c-nav-menu__item"><a href="/fintech">For Fintechs</a></li>
-                                    <li class="c-nav-menu__item"><a href="/service-partners">For Agents</a></li>
-                                    <li class="c-nav-menu__item"><a href="/schools">For Schools</a></li>
-                                    <li class="c-nav-menu__item"><a href="/betting">For Betting</a></li>
-                                </ul>
-                            </div>
-                            <div class="c-nav-menu-links" data-menu-link-group="learn">
-                                <ul class="c-nav-menu__group">
-                                    <li class="c-nav-menu__item"><a href="/blog">Blog</a></li>
-                                    <li class="c-nav-menu__item"><a href="/guides">Guides</a></li>
-                                    <li class="c-nav-menu__item"><a target="_blank" rel="noopener" href="/tutorials">Video Tutorials</a></li>
-                                    <li class="c-nav-menu__item"><a target="_blank" rel="noopener" href="https://decodefintech.com">Decode Fintech</a></li>
-                                    <li class="c-nav-menu__item"><a target="_blank" rel="noopener" href="/commerce">Commerce</a></li>
-                                </ul>
-                                <ul class="c-nav-menu__group">
-                                    <div class="c-nav-menu__label">Company</div>
-                                    <li class="c-nav-menu__item"><a href="/about">About Us</a></li>
-                                    <li class="c-nav-menu__item"><a href="/compliance">Compliance</a></li>
-                                    <li class="c-nav-menu__item"><a href="/careers">Careers</a></li>
-                                    <li class="c-nav-menu__item"><a href="/brand">Brand</a></li>
-                                    <li class="c-nav-menu__item"><a href="/media">Media Kit</a></li>
-                                    <li class="c-nav-menu__item"><a href="/terms">Privacy &amp; Terms</a></li>
-                                </ul>
-                            </div>
-                            <div class="c-nav-menu-links" data-menu-link-group="developers">
-                                <ul class="c-nav-menu__group">
-                                    <li class="c-nav-menu__item"><a href="/developers">Overview</a></li>
-                                    <li class="c-nav-menu__item"><a href="https://developers.paystack.co/">Documentation</a></li>
-                                    <li class="c-nav-menu__item"><a href="/integrations">Integrations</a></li>
-                                    <li class="c-nav-menu__item"><a href="/status">Status</a></li>
-                                </ul>
-                            </div>
-                            <div class="c-nav-menu-links" data-menu-link-group="support">
-                                <ul class="c-nav-menu__group">
-                                    <li class="c-nav-menu__item"><a target="_blank" rel="noopener" href="/help">Quick Help</a></li>
-                                    <li class="c-nav-menu__item"><a href="/contact">Contact Us</a></li>
-                                    <li class="c-nav-menu__item"><a href="/lookup">Why was I debited?</a></li>
-                                </ul>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -434,9 +379,14 @@ $products = wc_get_products(array(
 
                             </style>
                             <span class="c-button c-button--primary c-button--demo c-button--link" data-track="" data-track-section="Hero">
-                                <span class="c-button__text seller-reg-text-white" onclick="BabyFairTheme.triggerBuyerForm('seller')">
+                                <a href="#vendor-option">
+                                    <span class="c-button__text seller-reg-text-white">
+                                        or Register as a Seller
+                                    </span>
+                                </a>
+                                <!-- <span class="c-button__text seller-reg-text-white" onclick="BabyFairTheme.triggerBuyerForm('seller')">
                                     or Register as a Seller
-                                </span>
+                                </span> -->
                             </span>
                         </div>
                     </div>

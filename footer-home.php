@@ -161,7 +161,7 @@ $products = $args['products'];
                                         ?>
                                             <option value="<?= $product->get_id(); ?>"><?= $product->get_name(); ?> (<?= $product->get_price_html() ?>)</option>
                                         <?php }  ?>
-                                        <option value="seller">Seller</option>
+                                        <option value="buyer">Buyer</option>
                                     </select>
 
 

@@ -37,7 +37,9 @@ window.BabyFairTheme = {
     },
     updatePrice: () => {
         console.log(' [ Updating Price  ]', BabyFairTheme.orderType, BabyFairTheme.selectedProduct)
-
+        if(!BabyFairTheme.selectedProduct.price){
+            return;
+        }
         const bankTransferAmount = document.querySelector('.bank_transfer_amount');
         BabyFairTheme.setSelectedProduct(BabyFairTheme.selectedProduct.id);
         bankTransferAmount.innerText = BabyFairTheme.selectedProduct.price
@@ -163,6 +165,9 @@ window.BabyFairTheme = {
     commonGetProduct(compoundId) {
 
         const button = document.getElementById(compoundId);
+        if(!button){
+            return;
+        }
         const price = button.dataset.productPrice;
         const name = button.dataset.productName;
         const id = button.dataset.productId;
