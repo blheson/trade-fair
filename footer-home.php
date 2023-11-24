@@ -11,7 +11,7 @@
  * @subpackage Twenty_Twenty_One
  * @since Twenty Twenty-One 1.0
  */
-
+$products = $args['products'];
 ?>
 </main><!-- #main -->
 </div><!-- #primary -->
@@ -138,18 +138,30 @@
                                 <label class="control-label ng-binding">Email</label>
                                 <input type="email" name="email" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="">
                             </div>
+
                             <div class="form-group">
                                 <label class="control-label ng-binding">Phone</label>
                                 <input type="text" name="phone" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="">
                             </div>
-
+                            <div class="form-group">
+                                <label class="control-label ng-binding">Business Name</label>
+                                <input type="text" name="businessname" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label ng-binding">Store Address</label>
+                                <input type="text" name="storeaddress" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" required="">
+                            </div>
                             <div class="form-group">
                                 <label class="control-label ng-binding">Choose How you want to participate?</label>
                                 <div class="radio">
                                     <select name="businessType" id="" class="form-control">
-
+                                        <?php
+                                        foreach ($products as $product) {
+                                            $product_details = json_encode(array('id' => $product->get_id(), 'price' => $product->get_price(), 'name' => $product->get_name()));
+                                        ?>
+                                            <option value="<?= $product->get_id(); ?>"><?= $product->get_name(); ?> (<?= $product->get_price_html() ?>)</option>
+                                        <?php }  ?>
                                         <option value="seller">Seller</option>
-                                        <option value="buyer">Buyer</option>
                                     </select>
 
 
@@ -161,9 +173,9 @@
                                     <button class="payment-submit .c-button--primary">
                                         submit
                                     </button>
-                                    <div>
+                                    <!-- <div>
                                         <h2> NGN <span id="trade-fair-form-price"> </span></h2>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>

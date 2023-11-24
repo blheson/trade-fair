@@ -14,6 +14,12 @@
  */
 
 get_header('home');
+$products = wc_get_products(array(
+    'category' => array('vendors'),
+    'orderby' => 'menu_order',
+    'order' => 'asc'
+));
+
 ?>
 <header style="transform: translateY(-43px);">
     <a class="c-banner__link" id="js-banner" href="https://www.paystack.com/terminal/" style="opacity: 0;">
@@ -525,6 +531,89 @@ get_header('home');
     <!-- ABOUT SECTION -->
     <!-- TESTIMONIAL SECTION -->
 
+    <section class="l-section l-section--pad-top l-section--pad-bottom l-section--blue team-section">
+
+        <div class="c-section-pattern c-section-pattern--checked"></div>
+        <div class="l-container l-container--lg">
+            <div class="c-section-header c-section-header--left">
+                <div class="c-section-header__body">
+                    <h2>Our Team</h2>
+                    <!-- <p class="u-text-summary">Businesses of all sizes trust  to grow their business.</p> -->
+                </div>
+            </div>
+            <div class="u-flex ">
+                <div class="u-flex-child u-flex-child--w-33">
+                    <div class="team-image">
+                        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/team/team1.jpg'; ?>" alt="" width="100%">
+                    </div>
+                    <h2></h2>
+                    <small>Project Manager</small>
+
+                </div>
+                <div class="u-flex-child u-flex-child--w-33 ">
+                    <div class="team-image">
+                        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/team/team2.jpeg'; ?>" alt="" width="100%">
+                    </div>
+
+                    <h2>Winifred Godwin-Odeh</h2>
+                    <small>Digital Marketing Executive</small>
+                </div>
+                <!-- <div class="u-flex-child u-flex-child--w-33">
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <!-- TESTIMONIAL SECTION -->
+    <!-- PRODUCT SECTION -->
+    <section class="l-section l-section--pad-top l-section--pad-bottom l-section--white" id="vendor-option">
+
+
+
+        <div class="l-container l-container--lg">
+            <div class="c-section-header c-section-header--lft" style="text-align: center;">
+                <div class="c-section-header__body" style="margin: auto;">
+                    <h2>
+                        Vendor Options
+                    </h2>
+                    <!-- <p class="u-text-summary">Businesses of all sizes trust  to grow their business.</p> -->
+                </div>
+            </div>
+            <div class="c-feature c-feature--reversed">
+                <?php
+
+                // var_dump($products);
+                foreach ($products as $product) {
+                    $product_details = json_encode(array('id' => $product->get_id(), 'price' => $product->get_price(), 'name' => $product->get_name()));
+                ?>
+                    <div class="m-1" style="    padding: 20px 10px;
+    border: 1px solid #c2bcbc;
+    text-align: center;
+    border-radius: 30px;box-shadow: 2px 8px 16px 0 rgb(47 113 167 / 19%);">
+                        <div style="width: 200px;">
+                            <?= $product->get_image('thumbnail'); ?>
+                        </div>
+                        <h3><?= $product->get_name(); ?></h3>
+                        <p><?= $product->get_price_html() ?></p>
+
+                        <button id="product_buy_<?= $product->get_id(); ?>" style="padding:10px" onclick="BabyFairTheme.triggerFormByProduct('product_buy_<?= $product->get_id(); ?>')" data-product-price="<?= $product->get_price(); ?>" data-product-id="<?= $product->get_id(); ?>" data-product-name="<?= $product->get_name(); ?>">
+                            Purchase
+                        </button>
+                    </div>
+                    <!-- // var_dump($product->name);
+                    // var_dump($product->ID);
+                    var_dump($product);
+                    var_dump($product->get_ca); -->
+                <?php
+                }
+                ?>
+            </div>
+
+        </div>
+    </section>
+    <!-- PRODUCT SECTION -->
+
+    <!-- TESTIMONIAL SECTION -->
+
     <section class="l-section l-section--pad-top l-section--pad-bottom l-section--blue business-trust-section">
 
         <div class="c-section-pattern c-section-pattern--checked"></div>
@@ -716,4 +805,4 @@ get_header('home');
 </div>
 
 <?php
-get_footer('home');
+get_footer('home', array('products' => $products));

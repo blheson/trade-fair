@@ -1,4 +1,4 @@
-console.log('Active', '0.1.6')
+console.log('Active', '0.1.7')
 
 
 window.BabyFairTheme = {
@@ -7,18 +7,21 @@ window.BabyFairTheme = {
         BUYER: 'BUYER'
     },
     formData: {},
-    registerBuyerFormElement: document.getElementById('trade-fair-registration-form'),
-    tradeFairFormPrice: document.getElementById('trade-fair-form-price'),
+    registerBuyerForm: document.getElementById('trade-fair-registration-form'),
     orderAmount: 0,
+    selectedProduct: {},
     orderType: 'SELLER',
     triggerBuyerForm: (type = 'buyer') => {
 
-        BabyFairTheme.updateType(type)
+        // BabyFairTheme.updateType(type);
         let registerBuyerForm = BabyFairTheme.registerBuyerForm || document.getElementById('trade-fair-registration-form')
 
         if (!registerBuyerForm) {
             window.location.reload();
         }
+        console.log('BabyFairTheme.selected', BabyFairTheme.selectedProduct.id)
+        document.forms.signupForm.querySelector('select[name=businessType]').value = BabyFairTheme.selectedProduct.id
+
         registerBuyerForm.style.display = 'block';
     },
     closeBuyerForm: () => {
@@ -33,75 +36,52 @@ window.BabyFairTheme = {
 
     },
     updatePrice: () => {
-        console.log(' [ Updating Price  ]', BabyFairTheme.orderType)
-        const tradeFairPriceElement = BabyFairTheme.tradeFairFormPrice || document.getElementById('trade-fair-form-price');
-        const bankTransferAmount= document.querySelector('.bank_transfer_amount');
-    
-        switch (BabyFairTheme.orderType) {
-            case BabyFairTheme.OrderEnum.BUYER:
-                tradeFairPriceElement.innerText = '1000'
-                bankTransferAmount.innerText = '1000'
-                BabyFairTheme.orderAmount = '1000'
-                break;
-            case BabyFairTheme.OrderEnum.SELLER:
-            default:
-                bankTransferAmount.innerText = '5000'
-                tradeFairPriceElement.innerText = '5000'
-                BabyFairTheme.orderAmount = '5000'
-                break;
-        }
+        console.log(' [ Updating Price  ]', BabyFairTheme.orderType, BabyFairTheme.selectedProduct)
+
+        const bankTransferAmount = document.querySelector('.bank_transfer_amount');
+        BabyFairTheme.setSelectedProduct(BabyFairTheme.selectedProduct.id);
+        bankTransferAmount.innerText = BabyFairTheme.selectedProduct.price
+        BabyFairTheme.orderAmount = BabyFairTheme.selectedProduct.price
+
     },
     updateType: (value) => {
 
-        if (value === 'buyer') {
-            BabyFairTheme.orderType = BabyFairTheme.OrderEnum.BUYER
-        }
+
         if (value === 'seller') {
             BabyFairTheme.orderType = BabyFairTheme.OrderEnum.SELLER
+            return;
         }
+        BabyFairTheme.selectedProduct = { id: value }
 
-        const inputBoxType = document.forms.signupForm.querySelector('select[name=businessType]');
-
-        if (inputBoxType.value != BabyFairTheme.orderType) {
-            inputBoxType.value = BabyFairTheme.orderType.toLowerCase()
-        }
         BabyFairTheme.updatePrice();
-
-
     },
     setUp: () => {
         console.log(' [ SETUP] ');
 
-        BabyFairTheme.updatePrice();
+        // BabyFairTheme.updatePrice();
         // addEventListeners
         const inputBoxType = document.forms.signupForm.querySelector('select[name=businessType]');
 
         inputBoxType.addEventListener('change', (e) => {
             BabyFairTheme.updateType(e.target.value);
-
         })
         const paymentForm = document.forms.signupForm;
         paymentForm.addEventListener("submit", BabyFairTheme.payment, false);
         const close = document.getElementById('close-payment-modal-x');
         close.addEventListener('click', () => {
             BabyFairTheme.closeBuyerForm();
-
-        })
+        });
+        BabyFairTheme.getProducts();
         // BabyFairTheme.showSuccespage();
         BabyFairTheme.showPaymentForm();
     },
     init: () => {
         console.log(' [ INITIATING ] ');
-
         const intervalSet = setInterval(() => {
             console.log(' [ Running Setup] ');
-            if (document.getElementById('trade-fair-form-price')) {
-                clearInterval(intervalSet);
-                BabyFairTheme.setUp();
-
-            }
+            clearInterval(intervalSet);
+            BabyFairTheme.setUp();
         }, 1000);
-
     },
     submitForm: (response) => {
         try {
@@ -109,11 +89,14 @@ window.BabyFairTheme = {
                 email: document.forms.signupForm.elements.email.value,
                 businessType: document.forms.signupForm.elements.businessType.value,
                 fullname: document.forms.signupForm.elements.fullname.value,
+                business_name: document.forms.signupForm.elements.businessname.value,
+                store_address: document.forms.signupForm.elements.storeaddress.value,
                 phone: document.forms.signupForm.elements.phone.value,
+                productId: BabyFairTheme.selectedProduct.id,
                 nonce: document.forms.signupForm.elements._tradewpnonce.value,
                 trade_nonce: document.forms.signupForm.elements.trade_nonce.value,
                 txref: response.reference,
-                paymentMethod: 'bt'
+                paymentMethod: 'bt',
             }
             BabyFairTheme.formData = formData;
 
@@ -126,7 +109,7 @@ window.BabyFairTheme = {
             }
 
             const origin = window.location.origin;
-            console.log({fm:    BabyFairTheme.formData})
+            console.log({ fm: BabyFairTheme.formData })
 
             fetch(`${origin}/wp-json/trade-fair/payment`, request).then(
                 response => {
@@ -142,21 +125,79 @@ window.BabyFairTheme = {
                             alert(result.message || 'Error with payment');
                         }
                         break;
-                
+
                     default:
                         BabyFairTheme.orderId = result.orderId
                         BabyFairTheme.showSuccespage(result, response.reference);
                         break;
                 }
-             
+
                 console.log({ result })
             })
         } catch (error) {
             console.error({ error })
         }
     },
+    getProducts: () => {
+        const request = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }
+
+        //     fetch(`${origin}/wp-json/trade-fair/products`, request).then(
+        //         response => {
+        //             return response.json();
+        //         }
+        //     ).then(result => {
+        //  console.log({result})
+        //         console.log({ result })
+        //     })
+    },
+    /**
+     * compound id with product_buy_
+     * @param {*} id 
+     * @returns 
+     */
+    commonGetProduct(compoundId) {
+
+        const button = document.getElementById(compoundId);
+        const price = button.dataset.productPrice;
+        const name = button.dataset.productName;
+        const id = button.dataset.productId;
+        return { id, name, price }
+    },
+    /**
+     * plain id
+     * @param {*} id 
+     * @returns 
+     */
+    getProductDataById(id) {
+        const identity = `product_buy_${id}`;
+
+        return BabyFairTheme.commonGetProduct(identity);
+    },
+    setSelectedProduct(id) {
+
+        if (!id) return;
+        console.log({ id })
+        BabyFairTheme.selectedProduct = id.includes('product_buy_') ?
+            BabyFairTheme.commonGetProduct(id) :
+            BabyFairTheme.selectedProduct = BabyFairTheme.getProductDataById(id);
+    },
+    triggerFormByProduct(identity) {
+
+        // const { id, name, price } = BabyFairTheme.commonGetProduct(identity);
+        console.log({ identity }, 'iggerFormByProduct')
+        BabyFairTheme.setSelectedProduct(identity)
+        console.log({ sp: BabyFairTheme.selectedProduct.id }, 'iggerFormByProduct')
+
+        BabyFairTheme.triggerBuyerForm()
+
+    },
     showSuccespage(result, reference) {
-        let successpage,successRef;
+        let successpage, successRef;
         const paymentform = document.getElementById('show-payment-form');
         switch (BabyFairTheme.formData.paymentMethod) {
             case 'paystack':
@@ -164,26 +205,26 @@ window.BabyFairTheme = {
                 if (!successpage) {
                     return;
                 }
-       
+
                 successRef = document.getElementById('success-ref');
                 successRef.innerText = reference || ''
                 paymentform.style.display = 'none'
                 successpage.style.display = 'block'
                 break;
-        
-                
+
+
             default:
                 successpage = document.getElementById('show-bank-transfer-page');
                 if (!successpage) {
                     return;
                 }
-               
-               
+
+
                 paymentform.style.display = 'none'
                 successpage.style.display = 'block'
                 break;
         }
-     
+
     },
     showPaymentForm() {
 
@@ -205,9 +246,9 @@ window.BabyFairTheme = {
         // }
         BabyFairTheme.formData = {
             ...BabyFairTheme.formData,
-            paymentMethod:'bt'
+            paymentMethod: 'bt'
         }
- 
+
         switch (BabyFairTheme.formData.paymentMethod) {
             case 'paystack':
                 BabyFairTheme.payWithPaystack(e)

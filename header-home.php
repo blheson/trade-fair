@@ -21,6 +21,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <?php wp_head(); ?>
     <style>
+        .m-1{
+            margin:10px
+        }
         .c-banner__link {
             display: block;
             transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);

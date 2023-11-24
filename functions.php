@@ -84,11 +84,16 @@ function trade_order($body, $txBody)
     }
 
     // $order->set_status( 'wc-completed', 'You can pass some order notes here...' );
-    update_post_meta($order->ID, 'txref', $body['txref']);
-    update_post_meta($order->ID, 'businessType', $body['businessType']);
+    // update_post_meta($order->ID, 'txref', $body['txref']);
+    // update_post_meta($order->ID, 'businessType', $body['businessType']);
+    $order->update_meta_data('businessType', $body['businessType']);
+    $order->update_meta_data('txref', $body['txref']);
+    $order->update_meta_data('businessName', $body['business_name']);
+    $order->update_meta_data('store', $body['business_name']);
+    $order->update_meta_data('storeAddress', $body['store_address']);
     $email = isset($txBody['data']['customer']["email"]) ? $txBody['data']['customer']["email"] : $txBody['email'];
     try {
-        $productId = wc_get_product_id_by_sku(strtolower($body['businessType']));
+        $productId = strtolower($body['businessType']) === 'seller' ? wc_get_product_id_by_sku(strtolower($body['businessType'])) : wc_get_product($body['productId']);
         $order->add_product(wc_get_product($productId), 1);
         $order->calculate_totals();
     } catch (\Throwable $th) {
@@ -110,9 +115,30 @@ function trade_order($body, $txBody)
     return $order;
 }
 
+function trade_handle_get_product($data)
+{
+
+    $args = array(
+        'orderby'  => 'name',
+    );
+    $products = wc_get_products($args);
+
+    // "customer"
+    return array('sucess' => true, 'data' => json_encode($products));
+}
+
 add_action('rest_api_init', function () {
     register_rest_route('trade-fair', 'payment', array(
         'methods' => 'POST',
         'callback' => 'handle_payment_form',
     ));
+    register_rest_route('trade-fair', 'products', array(
+        'methods' => 'GET',
+        'callback' => 'trade_handle_get_product',
+    ));
 });
+
+// BRONZE TABLE - N200,000
+// SILVER BOOT -N300,000
+// GOLD BOOT -N400,000
+// THRIFTS CANOPY- N240,000

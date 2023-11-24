@@ -1167,7 +1167,12 @@ button--full-width,
     -ms-flex: 0 1 calc(33.3% - 20px);
     flex: 0 1 calc(33.3% - 20px)
 }
-
+.team-section .team-image{
+width: 300px;
+border-radius: 26px;
+height: 376px;
+overflow: hidden;
+}
 @media screen and (max-width: 600px) {
     .u-flex-child--w-33 {
         width: 100%
