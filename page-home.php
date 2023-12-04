@@ -494,9 +494,17 @@ $products = wc_get_products(array(
             <div class="u-flex ">
                 <div class="u-flex-child u-flex-child--w-33">
                     <div class="team-image">
+                        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/team/team3.jpeg'; ?>" alt="" width="100%">
+                    </div>
+                    <h2>Abimbola Anifowose</h2>
+                    <!-- <small>Project Manager</small> -->
+
+                </div>
+                <div class="u-flex-child u-flex-child--w-33">
+                    <div class="team-image">
                         <img src="<?= get_stylesheet_directory_uri() . '/assets/img/team/team1.jpg'; ?>" alt="" width="100%">
                     </div>
-                    <h2></h2>
+                    <h2>Olakunle Ajila</h2>
                     <small>Project Manager</small>
 
                 </div>
