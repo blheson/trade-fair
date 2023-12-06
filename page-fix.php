@@ -494,14 +494,7 @@ get_header();
                             <p>In 2023, Abimbola and Mujidat, business partners and parents, noticed a growing challenge for both businesses and families in Nigeria. Businesses struggled to reach their target audience effectively, and parents faced difficulties finding quality baby products. To bridge this gap, they launched the 9jababy Trade Fair.</p>
                         </div>
 
-                        <div class="c-feature__benefits u-flex">
-                            <ul class="u-list u-list--green ">
-                                <li>Vendors gain wide exposure, boosting sales and brand recognition effortlessly.
-                                </li>
-                                <!-- <li>Another benefit here</li> -->
 
-                            </ul>
-                        </div>
 
                         <div class="c-feature__cta">
                             <a href="#" target="_blank" class="c-button c-button--primary c-button--link">

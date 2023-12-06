@@ -431,15 +431,18 @@ $products = wc_get_products(array(
                     <div class="c-feature__media">
 
                         <figure class="c-feature__image">
-                            <div js-animate-in-view="" data-offset="40" class="u-animate u-animate--play" style="opacity: 1;">
-                                <img class=" u-lazyload--is-done" alt="Robust Suite Of Apis Opt" sizes="100vw" src="<?= get_stylesheet_directory_uri() . '/assets/img/Robust-Suite-of-APIs-Opt.png'; ?>" loading="lazy">
-                                <!-- <img class=" u-lazyload--is-done" alt="Robust Suite Of Apis Opt" sizes="100vw" src="<?= get_stylesheet_directory_uri() . '/assets/img/bpst-25-5bf6b848d7558-title.jpg'; ?>" loading="lazy"> -->
+                            <div js-animate-in-view="" data-offset="40" class="u-animate u-animate--play" style="opacity: 1;
+    height: 470px;
+    overflow: hidden;
+    border-radius: 30px;">
+
+                                <img src="<?= get_stylesheet_directory_uri() . '/assets/img/partner.jpg'; ?>" alt="partner" loading='lazy'>
 
                             </div>
                         </figure>
                     </div>
                 </div>
-                <div class="c-feature__right u-animate u-animate__delay--300 u-animate--glide-up">
+                <div class="c-feature__right u-animate u-animate__delay--300 u-animate--glide-up" style="align-items: flex-start;">
 
                     <div class="c-feature__body">
                         <div class="c-feature__text">
@@ -447,18 +450,11 @@ $products = wc_get_products(array(
                             <p>In 2023, Abimbola and Mujidat, business partners and parents, noticed a growing challenge for both businesses and families in Nigeria. Businesses struggled to reach their target audience effectively, and parents faced difficulties finding quality baby products. To bridge this gap, they launched the 9jababy Trade Fair.</p>
                         </div>
 
-                        <div class="c-feature__benefits u-flex">
-                            <ul class="u-list u-list--green ">
-                                <li>Vendors gain wide exposure, boosting sales and brand recognition effortlessly.
-                                </li>
-                                <!-- <li>Another benefit here</li> -->
-
-                            </ul>
-                        </div>
 
                         <div class="c-feature__cta">
                             <a href="#" target="_blank" class="c-button c-button--primary c-button--link">
                                 <span class="c-button__icon">
+
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="16" height="16" fill="#3BB75E" fill-opacity="0" transform="translate(2 2)"></rect>
                                         <circle cx="10" cy="10" r="8.72781" fill="#3BB75E" fill-opacity="0" stroke="#3BB75E" stroke-width="1.45563"></circle>
@@ -494,10 +490,10 @@ $products = wc_get_products(array(
             <div class="u-flex ">
                 <div class="u-flex-child u-flex-child--w-33">
                     <div class="team-image">
-                        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/team/team3.jpeg'; ?>" alt="" width="100%">
+                        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/partner-team.jpg'; ?>" alt="" width="100%">
                     </div>
-                    <h2>Abimbola Anifowose</h2>
-                    <!-- <small>Project Manager</small> -->
+                    <h2>Abimbola and Labs</h2>
+                    <small>Coordinator and Baby sector representative</small>
 
                 </div>
                 <div class="u-flex-child u-flex-child--w-33">
@@ -547,7 +543,7 @@ $products = wc_get_products(array(
     border: 1px solid #c2bcbc;
     text-align: center;
     border-radius: 30px;box-shadow: 2px 8px 16px 0 rgb(47 113 167 / 19%);">
-                        <div style="width: 200px;">
+                        <div class="product-image">
                             <?= $product->get_image('thumbnail'); ?>
                         </div>
                         <h3><?= $product->get_name(); ?></h3>
