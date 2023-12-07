@@ -490,9 +490,17 @@ $products = wc_get_products(array(
             <div class="u-flex ">
                 <div class="u-flex-child u-flex-child--w-33">
                     <div class="team-image">
-                        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/partner-team.jpg'; ?>" alt="" width="100%">
+                        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/team/team3.jpg'; ?>" alt="" width="100%">
                     </div>
-                    <h2>Abimbola and Labs</h2>
+                    <h2>Abimbola Anifowose</h2>
+                    <small>Coordinator and Baby sector representative</small>
+
+                </div>
+                <div class="u-flex-child u-flex-child--w-33">
+                    <div class="team-image">
+                        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/team/team4.jpg'; ?>" alt="" width="100%">
+                    </div>
+                    <h2>Sulaimon Mujidat</h2>
                     <small>Coordinator and Baby sector representative</small>
 
                 </div>

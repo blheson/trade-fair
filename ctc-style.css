@@ -1168,15 +1168,26 @@ button--full-width,
     flex: 0 1 calc(33.3% - 20px)
 }
 .team-section .team-image{
-width: 196px;
+width: 100%;
 border-radius: 26px;
-height: 221px;
+height: 237px;
 overflow: hidden;
 }
 .product-image{
     width: 200px;
   }
-@media screen and (max-width: 600px) {
+.c-card__body p,.c-feature__text p  {
+    text-align: justify;
+}
+
+@media screen and (max-width: 768px) {
+    .team-section .team-image{
+ 
+        height: 200px;
+     
+        }
+}
+    @media screen and (max-width: 600px) {
     .u-flex-child--w-33 {
         width: 100%;
         margin-top: 30px;
