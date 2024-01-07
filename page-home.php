@@ -509,7 +509,7 @@ $products = wc_get_products(array(
                         <img src="<?= get_stylesheet_directory_uri() . '/assets/img/team/team1.jpg'; ?>" alt="" width="100%">
                     </div>
                     <h2>Olakunle Ajila</h2>
-                    <small>Project Manager</small>
+                    <small>Project Coordinator</small>
 
                 </div>
                 <div class="u-flex-child u-flex-child--w-33 ">
@@ -518,7 +518,7 @@ $products = wc_get_products(array(
                     </div>
 
                     <h2>Winifred Godwin-Odeh</h2>
-                    <small>Digital Marketing Executive</small>
+                    <small>Project Manager</small>
                 </div>
                 <!-- <div class="u-flex-child u-flex-child--w-33">
                 </div> -->
