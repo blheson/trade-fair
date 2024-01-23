@@ -1,4 +1,4 @@
-console.log('Active', '0.1.17')
+console.log('Active', '0.1.20')
 
 
 window.BabyFairTheme = {
@@ -19,8 +19,8 @@ window.BabyFairTheme = {
         if (!registerBuyerForm) {
             window.location.reload();
         }
-        console.log('BabyFairTheme.selected', BabyFairTheme.selectedProduct.id)
-        document.forms.signupForm.querySelector('select[name=businessType]').value = BabyFairTheme.selectedProduct.id
+        
+        document.forms.signupForm.querySelector('select[name=productId]').value = BabyFairTheme.selectedProduct.id
 
         registerBuyerForm.style.display = 'block';
     },
@@ -33,17 +33,22 @@ window.BabyFairTheme = {
         }
         registerBuyerForm.style.display = 'none';
         BabyFairTheme.showPaymentForm();
+        window.location.href= '/'
 
     },
     updatePrice: () => {
-        console.log(' [ Updating Price  ]', BabyFairTheme.orderType, BabyFairTheme.selectedProduct)
-        if(!BabyFairTheme.selectedProduct.price){
+       const productOptions= document.forms.signupForm.elements.productId.options;
+
+       const selectedPrice = productOptions[productOptions.selectedIndex].dataset.price;
+        if (!selectedPrice) {
             return;
         }
         const bankTransferAmount = document.querySelector('.bank_transfer_amount');
-        BabyFairTheme.setSelectedProduct(BabyFairTheme.selectedProduct.id);
-        bankTransferAmount.innerText = BabyFairTheme.selectedProduct.price
-        BabyFairTheme.orderAmount = BabyFairTheme.selectedProduct.price
+        // BabyFairTheme.setSelectedProduct(BabyFairTheme.selectedProduct.id);
+        bankTransferAmount.innerText =  new Intl.NumberFormat('na-NG', { style: 'currency', currency: 'NGN' }).format(
+            selectedPrice
+          ), 
+        BabyFairTheme.orderAmount = selectedPrice
 
     },
     updateType: (value) => {
@@ -62,7 +67,7 @@ window.BabyFairTheme = {
 
         // BabyFairTheme.updatePrice();
         // addEventListeners
-        const inputBoxType = document.forms.signupForm.querySelector('select[name=businessType]');
+        const inputBoxType = document.forms.signupForm.querySelector('select[name=productId]');
 
         inputBoxType.addEventListener('change', (e) => {
             BabyFairTheme.updateType(e.target.value);
@@ -87,27 +92,40 @@ window.BabyFairTheme = {
     },
     submitForm: (response) => {
         try {
+       
             const formData = {
-                email: document.forms.signupForm.elements.email.value,
-                businessType: document.forms.signupForm.elements.businessType.value,
+                // email: document.forms.signupForm.elements.email.value,
+          
                 fullname: document.forms.signupForm.elements.fullname.value,
-                business_name: document.forms.signupForm.elements.businessname.value,
+                // business_name: document.forms.signupForm.elements.businessname.value,
                 store_address: document.forms.signupForm.elements.storeaddress.value,
                 phone: document.forms.signupForm.elements.phone.value,
-                productId: BabyFairTheme.selectedProduct.id,
+                productId: document.forms.signupForm.elements.productId.value,
                 nonce: document.forms.signupForm.elements._tradewpnonce.value,
                 trade_nonce: document.forms.signupForm.elements.trade_nonce.value,
                 txref: response.reference,
-                paymentMethod: 'bt',
+                paymentMethod: document.forms.signupForm.elements.paymentMethod.value,
+                category: document.forms.signupForm.elements.category.value,
+                cac_cert: document.forms.signupForm.elements.cac_cert.files[0],
+                valid_id: document.forms.signupForm.elements.valid_id.files[0],
+                utility_bill: document.forms.signupForm.elements.utility_bill.files[0]
             }
+            const body = new FormData();
+            for (const key in formData) {
+                if (Object.hasOwnProperty.call(formData, key)) {
+                    const element = formData[key];
+                    body.set(key, element);
+                }
+            }
+            body.set('cac_cert', document.forms.signupForm.elements.cac_cert.files[0])
             BabyFairTheme.formData = formData;
 
             const request = {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
+                // headers: {
+                //     "Content-Type": "application/json",
+                // },
+                body,
             }
 
             const origin = window.location.origin;
@@ -129,6 +147,17 @@ window.BabyFairTheme = {
                         break;
 
                     default:
+                        if(!result.success){
+                            Swal?.fire({
+                                title: 'Error!',
+                                text: result.message,
+                                icon: 'error',
+                                confirmButtonText: 'cancel',
+                    
+                                toast:true
+                              })
+                              return
+                        }
                         BabyFairTheme.orderId = result.orderId
                         BabyFairTheme.showSuccespage(result, response.reference);
                         break;
@@ -165,7 +194,7 @@ window.BabyFairTheme = {
     commonGetProduct(compoundId) {
 
         const button = document.getElementById(compoundId);
-        if(!button){
+        if (!button) {
             return;
         }
         const price = button.dataset.productPrice;
@@ -224,7 +253,10 @@ window.BabyFairTheme = {
                     return;
                 }
 
-
+               const regFormpage=  document.getElementById('trade-fair-registration-form')
+               if(regFormpage){
+                regFormpage.style.display = 'block'
+               }
                 paymentform.style.display = 'none'
                 successpage.style.display = 'block'
                 break;
@@ -266,12 +298,11 @@ window.BabyFairTheme = {
     payWithBankTransfer(e) {
         e.preventDefault();
         BabyFairTheme.updatePrice();
-        const email = document.forms.signupForm.elements.email.value
 
-        if (!email) {
-            alert('email is missing')
-            return;
-        }
+        // if (!email) {
+        //     alert('email is missing')
+        //     return;
+        // }
         BabyFairTheme.submitForm({ reference: new Date().getTime() });
         // show-bank-transfer-page
     },
@@ -279,12 +310,7 @@ window.BabyFairTheme = {
         e.preventDefault();
         BabyFairTheme.updatePrice();
         // const email = document.forms.signupForm.querySelector('input[name=email]').value
-        const email = document.forms.signupForm.elements.email.value
 
-        if (!email) {
-            alert('email is missing')
-            return;
-        }
         // const response = {
         //     message: "Approved",
         //     redirecturl: "?trxref=T240558480978169&reference=T240558480978169",

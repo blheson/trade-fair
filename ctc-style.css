@@ -2142,3 +2142,22 @@ ul.u-list--centered {
     opacity: 0.1;
     background-image: url('./assets/img/Minimal-baby-icon-pattern-design-Graphics-7063905-2-580x386.jpg');
 }
+.form-box{
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+
+}
+
+.form-box form[name=signupForm]{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    .form-box{
+        max-width: 100%;
+    }
+    
+}
